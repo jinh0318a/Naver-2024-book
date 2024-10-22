@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.callor.naver.dao.BookDao">
+
+	<insert id="insert">
+		insert into tbl_books(isbn,
+		title,
+		author,
+		publisher,
+		price,
+		discount,
+		description,
+		pubdate,
+		link,
+		image)
+		values(#{isbn},
+		#{title},
+		#{author},
+		#{publisher},
+		#{price},
+		#{discount},
+		#{description},
+		#{pubdate},
+		#{link},
+		#{image})
+	</insert>
+
+</mapper>
