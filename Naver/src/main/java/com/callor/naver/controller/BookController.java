@@ -47,4 +47,13 @@ public class BookController {
 		return "book/search";
 	}
 
+	@RequestMapping(value = "/detail", method = RequestMethod.GET)
+	public String detail(String isbn, Model model) {
+
+		BookVO bookVO = bookDao.findByisbn(isbn);
+		model.addAttribute("BOOK", bookVO);
+
+		return "book/detail";
+	}
+
 }

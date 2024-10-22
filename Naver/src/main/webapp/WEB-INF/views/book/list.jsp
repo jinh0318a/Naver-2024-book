@@ -10,9 +10,9 @@
 <title>도서목록</title>
 </head>
 <body>
-	<ul>
+	<ul class="bookList">
 		<c:forEach items="${BOOKLIST}" var="book">
-			<li>${book.title }</li>
+			<li data-isbn="${book.isbn }"><span>${book.title }</span></li>
 		</c:forEach>
 	</ul>
 </body>
