@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html
+  lang="ko"
+  xmlns:th="http://www.thymeleaf.org"
+  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+  xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+  layout:decorate="~{/layout}"
+>
+  <head>
+    <meta charset="UTF-8" />
+    <title>도서정보 수정</title>
+  </head>
+  <body>
+    <div th:fragment="content" class="update">
+      <h1>도서정보 수정</h1>
+      <form method="post" th:action="@{/book/update}">
+        <p th:text="${book.isbn}">도서번호</p>
+        <input type="hidden" name="isbn" th:value="${book.isbn}" />
+        <input
+          type="text"
+          placeholder="책 제목"
+          name="title"
+          th:value="${book.title != null ? book.title : ''}"
+          required
+        />
+        <input
+          type="text"
+          placeholder="저자"
+          name="author"
+          th:value="${book.author != null ? book.author : ''}"
+          required
+        />
+        <input
+          type="text"
+          placeholder="출판사"
+          name="publisher"
+          th:value="${book.publisher != null ? book.publisher : ''}"
+          required
+        />
+        <input
+          type="number"
+          placeholder="가격"
+          name="price"
+          th:value="${book.price != null ? book.price : ''}"
+        />
+        <input
+          type="number"
+          placeholder="판매가"
+          name="discount"
+          th:value="${book.discount != null ? book.discount : ''}"
+        />
+        <input
+          type="text"
+          placeholder="책 설명"
+          name="description"
+          th:value="${book.description != null ? book.description : ''}"
+        />
+        <input
+          type="text"
+          placeholder="출판일 (예: 2024-08-15)"
+          name="pubdate"
+          th:value="${book.pubdate != null ? book.pubdate : ''}"
+        />
+        <input
+          type="url"
+          placeholder="URL"
+          name="link"
+          th:value="${book.link != null ? book.link : ''}"
+        />
+        <input
+          type="url"
+          placeholder="이미지 URL"
+          name="image"
+          th:value="${book.image != null ? book.image : ''}"
+        />
+
+        <button type="submit" class="update">수정</button>
+      </form>
+    </div>
+  </body>
+</html>

@@ -11,7 +11,7 @@
     <title>홈</title>
   </head>
   <body>
-    <div th:fragment="content">
+    <div th:fragment="content" class="list">
       <ul class="bookList">
         <li th:if="${#lists.isEmpty(BOOKLIST)}">
           <h1>도서목록이 없습니다.</h1>

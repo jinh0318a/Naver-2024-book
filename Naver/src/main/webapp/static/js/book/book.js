@@ -1,10 +1,19 @@
 document.addEventListener("DOMContentLoaded", () => {
-  document.querySelectorAll(".book-title").forEach((item) => {
-    item.addEventListener("click", function () {
-      const isbn = this.closest("li").getAttribute("data-isbn");
-      console.log(rootPath);
-      console.log(isbn);
-      window.location.href = `http://localhost:8080/naver/book/detail?isbn=${isbn}`;
-    });
+  const bookList = document.querySelectorAll(".book-title");
+
+  const onBookClickHandler = (e) => {
+    const target = e.target.closest("li");
+    if (!target) return;
+
+    let url = `${rootPath}`;
+    const isbn = target.getAttribute("data-isbn");
+
+    url += `/book/detail?isbn=${isbn}`;
+
+    document.location.href = url;
+  };
+
+  bookList?.forEach((item) => {
+    item.addEventListener("click", onBookClickHandler);
   });
 });

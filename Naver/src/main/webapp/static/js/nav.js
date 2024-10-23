@@ -13,11 +13,10 @@ document.addEventListener("DOMContentLoaded", () => {
     if (classList.contains("search")) url += "/book/search";
     if (classList.contains("login")) url += "/user/login";
     if (classList.contains("join")) url += "/user/join";
-    if (classList.contains("mypage")) url += "/user/mypage";
-    if (classList.contains("admin")) url += "/user/admin";
+    if (classList.contains("logout")) url += "/user/logout";
 
     document.location.href = url;
   };
 
-  main_nav.addEventListener("click", onNavClickHandler);
+  main_nav?.addEventListener("click", onNavClickHandler);
 });

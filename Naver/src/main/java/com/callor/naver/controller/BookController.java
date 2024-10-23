@@ -45,6 +45,8 @@ public class BookController {
 		for (BookVO one : bookList) {
 			if (bookDao.findByisbn(one.getIsbn()) == null) {
 				bookDao.insert(one);
+			} else {
+				System.out.println("중복된 ISBN: " + one.getIsbn() + "는 저장하지 않습니다.");
 			}
 		}
 
@@ -84,7 +86,7 @@ public class BookController {
 	@RequestMapping(value = "/update", method = RequestMethod.GET)
 	public String update(String isbn, Model model) {
 		BookVO bookVO = bookDao.findByisbn(isbn);
-		model.addAttribute("BOOK", bookVO);
+		model.addAttribute("book", bookVO);
 		return "book/update";
 	}
 
