@@ -15,6 +15,6 @@ import lombok.ToString;
 @Builder
 public class RoleVO {
 
-	private String r_id;
+	private String r_username;
 	private String r_role;
 }

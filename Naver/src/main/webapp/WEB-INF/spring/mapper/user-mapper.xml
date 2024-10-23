@@ -6,8 +6,8 @@
 <mapper namespace="com.callor.naver.dao.UserDao">
 
 	<insert id="insert">
-		insert into tbl_users(id, password, email)
-		values(#{id},#{password},#{email})
+		insert into tbl_users(username, password, email)
+		values(#{username},#{password},#{email})
 	</insert>
 
 </mapper>

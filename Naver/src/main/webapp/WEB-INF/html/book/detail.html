@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html
+  lang="ko"
+  xmlns:th="http://www.thymeleaf.org"
+  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+  xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+  layout:decorate="~{/layout}"
+>
+  <head>
+    <meta charset="UTF-8" />
+    <title>도서 상세보기</title>
+  </head>
+  <body>
+    <div th:fragment="content">
+      <h1>도서 상세보기</h1>
+      <div>
+        <p th:text="${BOOK.title}"></p>
+        <p th:text="${BOOK.description}"></p>
+        <p th:text="${BOOK.publisher}"></p>
+        <p th:text="${BOOK.discount}"></p>
+      </div>
+      <a th:href="@{/book/update(isbn=${BOOK.isbn})}">수정</a>
+      <a th:href="@{/book/delete(isbn=${BOOK.isbn})}">삭제</a>
+    </div>
+  </body>
+</html>

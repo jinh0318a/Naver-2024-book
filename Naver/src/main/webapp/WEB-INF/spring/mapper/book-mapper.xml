@@ -28,4 +28,18 @@
 		#{image})
 	</insert>
 
+	<update id="update">
+		update tbl_books
+		set
+		title=#{title},
+		author=#{author},
+		publisher=#{publisher},
+		price=#{price},
+		discount=#{discount},
+		description=#{description},
+		pubdate=#{pubdate},
+		link=#{link},
+		image=#{image}
+		where isbn=#{isbn}
+	</update>
 </mapper>

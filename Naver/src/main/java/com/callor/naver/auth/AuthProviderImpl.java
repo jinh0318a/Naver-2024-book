@@ -3,7 +3,6 @@ package com.callor.naver.auth;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -28,10 +27,8 @@ import com.callor.naver.model.UserVO;
 
 @Service("authProviderImpl")
 public class AuthProviderImpl implements AuthenticationProvider {
-	
-	@Autowired
+
 	private final UserDao userDao;
-	
 	private final RoleDao roleDao;
 	private final PasswordEncoder passwordEncoder;
 

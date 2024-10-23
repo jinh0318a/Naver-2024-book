@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html
+  lang="ko"
+  xmlns:th="http://www.thymeleaf.org"
+  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+  xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+  layout:decorate="~{/layout}"
+>
+  <head>
+    <meta charset="UTF-8" />
+    <title>도서정보 추가</title>
+  </head>
+  <body>
+    <div th:fragment="content">
+      <h1>도서정보 추가</h1>
+      <form method="post" th:action="@{/book/add}">
+        <input type="number" placeholder="도서번호" name="isbn" required />
+        <input type="text" placeholder="책 제목" name="title" required />
+        <input type="text" placeholder="저자" name="author" required />
+        <input type="text" placeholder="출판사" name="publisher" required />
+        <input type="number" placeholder="가격" name="price" required />
+        <input type="number" placeholder="판매가" name="discount" required />
+        <input type="text" placeholder="책 설명" name="description" />
+        <input type="date" placeholder="출판일" name="pubdate" />
+        <input type="url" placeholder="URL" name="link" />
+        <input type="url" placeholder="이미지 URL" name="image" />
+        <button type="submit">저장</button>
+        <button type="reset">새로작성</button>
+        <a th:href="@{/book/}">리스트보기</a>
+      </form>
+    </div>
+  </body>
+</html>

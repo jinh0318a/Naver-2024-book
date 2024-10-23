@@ -13,6 +13,8 @@ public interface BookDao {
 
 	public int insert(BookVO bookVO);
 
+	public int update(BookVO bookVO);
+
 	@Delete("delete from tbl_books where isbn=#{isbn}")
 	public int delete(String isbn);
 

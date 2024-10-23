@@ -1,5 +1,6 @@
 package com.callor.naver.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.stereotype.Controller;
@@ -35,7 +36,11 @@ public class BookController {
 
 	@RequestMapping(value = "/search", method = RequestMethod.GET)
 	public String search(String word, Model model) {
-		List<BookVO> bookList = bookService.findByWord(word);
+		List<BookVO> bookList = new ArrayList<>();
+
+		if (word != null && !word.isBlank()) {
+			bookList = bookService.findByWord(word);
+		}
 
 		for (BookVO one : bookList) {
 			if (bookDao.findByisbn(one.getIsbn()) == null) {
@@ -54,6 +59,39 @@ public class BookController {
 		model.addAttribute("BOOK", bookVO);
 
 		return "book/detail";
+	}
+
+	@RequestMapping(value = "/add", method = RequestMethod.GET)
+	public String add() {
+		return "book/add";
+	}
+
+	@RequestMapping(value = "/add", method = RequestMethod.POST)
+	public String add(BookVO bookVO) {
+		if (bookDao.findByisbn(bookVO.getIsbn()) == null) {
+			bookDao.insert(bookVO);
+		}
+
+		return "redirect:/book";
+	}
+
+	@RequestMapping(value = "/delete", method = RequestMethod.GET)
+	public String delete(String isbn) {
+		bookDao.delete(isbn);
+		return "redirect:/book";
+	}
+
+	@RequestMapping(value = "/update", method = RequestMethod.GET)
+	public String update(String isbn, Model model) {
+		BookVO bookVO = bookDao.findByisbn(isbn);
+		model.addAttribute("BOOK", bookVO);
+		return "book/update";
+	}
+
+	@RequestMapping(value = "/update", method = RequestMethod.POST)
+	public String update(BookVO bookVO) {
+		bookDao.update(bookVO);
+		return "redirect:/book/detail?isbn=" + bookVO.getIsbn();
 	}
 
 }

@@ -10,9 +10,19 @@
 <title>네이버 도서</title>
 </head>
 <body>
-	<form action="${rootPath}/book/search">
-		<input type="text" name="word" placeholder="검색어 입력" />
-		<button type="submit">검색</button>
-	</form>
+<nav>
+<ul>
+<li>홈</li>
+<li>도서정보</li>
+<li>도서검색</li>
+<li>로그인</li>
+<li>회원가입</li>
+</ul>
+</nav>
+	<ul class="bookList">
+		<c:forEach items="${BOOKLIST}" var="book">
+			<li data-isbn="${book.isbn }"><span>${book.title }</span></li>
+		</c:forEach>
+	</ul>
 </body>
 </html>

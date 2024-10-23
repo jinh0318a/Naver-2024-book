@@ -21,7 +21,7 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 @Service
 public class UserServiceImpl implements UserService {
-	
+
 	private final UserDao userDao;
 	private final RoleDao roleDao;
 	private final PasswordEncoder passwordEncoder;
@@ -48,11 +48,11 @@ public class UserServiceImpl implements UserService {
 		List<RoleVO> roles = new ArrayList<>();
 		if (userList.size() > 0) {
 			// 이미 회원 가입된 데이터가 있음
-			roles.add(RoleVO.builder().r_id(userVO.getId()).r_role("ROLE_USER").build());
+			roles.add(RoleVO.builder().r_username(userVO.getUsername()).r_role("ROLE_USER").build());
 		} else {
 			// 회원 가입된 데이터가 없음
-			roles.add(RoleVO.builder().r_id(userVO.getId()).r_role("ROLE_ADMIN").build());
-			roles.add(RoleVO.builder().r_id(userVO.getId()).r_role("ROLE_USER").build());
+			roles.add(RoleVO.builder().r_username(userVO.getUsername()).r_role("ROLE_ADMIN").build());
+			roles.add(RoleVO.builder().r_username(userVO.getUsername()).r_role("ROLE_USER").build());
 		}
 
 		int ret = userDao.insert(userVO);

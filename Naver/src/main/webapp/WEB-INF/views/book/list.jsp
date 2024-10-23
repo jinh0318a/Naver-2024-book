@@ -15,5 +15,8 @@
 			<li data-isbn="${book.isbn }"><span>${book.title }</span></li>
 		</c:forEach>
 	</ul>
+	<div>
+		<button>도서정보추가</button>
+	</div>
 </body>
 </html>
