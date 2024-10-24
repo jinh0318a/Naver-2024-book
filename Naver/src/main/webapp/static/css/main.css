@@ -55,32 +55,69 @@ div.list {
   height: 100%;
   width: 80%;
   margin: 10px auto;
-  ul.bookList {
-    height: 80%;
-    width: 100%;
-    overflow-y: auto;
-    scrollbar-width: none;
-    text-align: center;
+}
+
+ul.bookList {
+  height: 80%;
+  width: 100%;
+  overflow-y: auto;
+  scrollbar-width: none;
+  text-align: center;
+  list-style: none;
+  padding: 0;
+
+  li.head {
+    display: flex;
+    background-color: #f0f0f0;
+    font-weight: bold;
+    border-bottom: 2px solid #000;
+    padding: 10px;
   }
 
-  div.add {
-    margin: 10px auto;
-    width: 150px;
-    text-align: center;
-    padding: 20px 12px;
-    border-radius: 10px;
-    background-color: red;
-    color: white;
+  li {
+    display: flex;
+    border: 1px solid #000;
+    padding: 10px;
 
-    &:hover {
-      background-color: rgb(128, 0, 0);
+    span {
+      flex: 1;
+      min-width: 100px;
+      text-align: left;
+      padding: 5px;
     }
+
+    &:nth-child(odd) {
+      background-color: #f9f9f9;
+    }
+
+    &:nth-child(even) {
+      background-color: #ffffff;
+    }
+  }
+}
+
+div.add {
+  display: flex;
+  margin: 10px auto;
+  width: 10%;
+  background-color: red;
+  color: white;
+  padding: 12px;
+  border: transparent;
+  text-align: center;
+  justify-content: center;
+  align-self: center;
+  border-radius: 10px;
+
+  &:hover {
+    background-color: blue;
   }
 }
 
 div.search {
   margin: 10px auto;
   height: 100%;
+  width: 80%;
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -91,6 +128,10 @@ div.search {
     height: 2.5rem;
     padding: 5px;
     border-radius: 10px;
+  }
+
+  h1 {
+    text-align: center;
   }
 
   button {
@@ -227,7 +268,7 @@ div.detail {
     justify-content: center;
     align-items: center;
     text-align: center;
-
+    width: 80%;
     span.title {
       font-size: 2rem;
       font-weight: 900;

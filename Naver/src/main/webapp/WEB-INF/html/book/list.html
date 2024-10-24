@@ -13,7 +13,7 @@
   <body>
     <div th:fragment="content" class="list">
       <ul class="bookList">
-        <li>
+        <li class="head">
           <span>도서번호</span>
           <span>제목</span>
           <span>출판사</span>
@@ -23,14 +23,16 @@
         <li th:if="${#lists.isEmpty(BOOKLIST)}">
           <h1>도서목록이 없습니다.</h1>
         </li>
-        <li th:each="book : ${BOOKLIST}" th:attr="data-isbn=${book.isbn}">
-          <div class="book-title">
-            <span th:text="${book.isbn }">도서번호</span>
-            <span th:text="${book.title }">책 제목</span>
-            <span th:text="${book.publisher }">출판사</span>
-            <span th:text="${book.author }">저자</span>
-            <span th:text="${book.pubdate }">출판일자</span>
-          </div>
+        <li
+          th:each="book : ${BOOKLIST}"
+          th:attr="data-isbn=${book.isbn}"
+          class="book-title"
+        >
+          <span th:text="${book.isbn }">도서번호</span>
+          <span th:text="${book.title }">책 제목</span>
+          <span th:text="${book.publisher }">출판사</span>
+          <span th:text="${book.author }">저자</span>
+          <span th:text="${book.pubdate }">출판일자</span>
         </li>
       </ul>
       <div class="add">
