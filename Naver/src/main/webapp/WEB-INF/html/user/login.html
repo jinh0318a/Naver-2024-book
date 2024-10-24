@@ -11,11 +11,11 @@
     <title>로그인</title>
   </head>
   <body>
-    <div th:fragment="content">
+    <div th:fragment="content" class="login">
       <form method="post" th:action="@{/user/login}">
         <input name="username" placeholder="USERNAME" />
         <input name="password" placeholder="PASSWORD" type="password" />
-        <input type="submit" value="로그인" />
+        <input type="submit" value="로그인" class="button" />
       </form>
     </div>
   </body>

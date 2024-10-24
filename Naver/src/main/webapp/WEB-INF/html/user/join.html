@@ -11,31 +11,27 @@
     <title>회원가입</title>
   </head>
   <body>
-    <div th:fragment="content">
+    <div th:fragment="content" class="join">
       <form class="join" method="post" th:action="@{/user/join}">
-        <div>
-          <input name="username" id="username" placeholder="USERNAME" />
-        </div>
-        <div>
-          <input
-            type="password"
-            name="password"
-            id="password"
-            placeholder="PASSWORD"
-          />
-        </div>
-        <div>
-          <input
-            type="password"
-            name="re_password"
-            id="re_password"
-            placeholder="PASSWORD 확인"
-          />
-        </div>
-        <div>
-          <input name="email" placeholder="E-mail" />
-        </div>
-        <button type="submit" id="join">회원가입</button>
+        <input name="username" id="username" placeholder="USERNAME" />
+
+        <input
+          type="password"
+          name="password"
+          id="password"
+          placeholder="PASSWORD"
+        />
+
+        <input
+          type="password"
+          name="re_password"
+          id="re_password"
+          placeholder="PASSWORD 확인"
+        />
+
+        <input name="email" placeholder="E-mail" />
+
+        <input type="submit" id="join" class="button" value="회원가입" />
       </form>
     </div>
   </body>

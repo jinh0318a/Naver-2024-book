@@ -8,19 +8,38 @@
 >
   <head>
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>도서 상세보기</title>
   </head>
   <body>
-    <div th:fragment="content">
-      <h1>도서 상세보기</h1>
-      <div>
-        <p th:text="${BOOK.title}"></p>
-        <p th:text="${BOOK.description}"></p>
-        <p th:text="${BOOK.publisher}"></p>
-        <p th:text="${BOOK.discount}"></p>
+    <div th:fragment="content" class="detail">
+      <div class="book-detail">
+        <div>
+          <span th:text="${BOOK.title}" class="title"></span>
+        </div>
+        <div>
+          <span th:text="'저자 : ' + ${BOOK.author}"></span>
+          <span th:text="'출판사 : ' + ${BOOK.publisher}"></span>
+          <span th:text="'출판일 : ' + ${BOOK.pubdate}"></span>
+          <span th:text="'판매가 : ' + ${BOOK.discount}"></span>
+        </div>
+        <div class="description">
+          <div>
+            <img th:src="${BOOK.image}" alt="이미지" class="image" />
+          </div>
+          <div>
+            <p th:text="${BOOK.description}"></p>
+          </div>
+        </div>
+        <div class="link">
+          <a th:href="${BOOK.link}">자세히 보기</a>
+        </div>
       </div>
-      <a th:href="@{/book/update(isbn=${BOOK.isbn})}">수정</a>
-      <a th:href="@{/book/delete(isbn=${BOOK.isbn})}">삭제</a>
+      <div>
+        <a th:href="@{/book/update(isbn=${BOOK.isbn})}" class="update">수정</a>
+        <a th:href="@{/book/delete(isbn=${BOOK.isbn})}" class="delete">삭제</a>
+        <a th:href="@{/book/}" class="list">리스트보기</a>
+      </div>
     </div>
   </body>
 </html>

@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const bookList = document.querySelectorAll(".book-title");
 
   const onBookClickHandler = (e) => {
-    const target = e.target.closest("li");
+    const target = e.target.closest("LI");
     if (!target) return;
 
     let url = `${rootPath}`;
